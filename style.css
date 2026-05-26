@@ -4,9 +4,14 @@ body {
     font-family: Arial, sans-serif;
     display: grid;
     grid-template-rows: auto 1fr auto;
+    grid-template-areas: 
+    "header header header"
+    "main main main"
+    "footer footer footer";
 }
 
 .header {
+    grid-area: header;
     background-color: #333;
     color: #fff;
     padding: 1rem;
@@ -15,8 +20,24 @@ body {
     flex-direction: row;
     align-items: center;
     justify-content: space-between;
+    border-radius: 0 0 1rem 1rem;
 }
 
-.header-links {
+.hd-links {
+    display: flex;
+    flex-direction: row;
     gap: 1rem;
+}
+
+.hd-links a {
+    color:antiquewhite;
+
+}
+
+.main {
+    grid-area: main;
+}
+
+.footer {
+    grid-area: footer;
 }
