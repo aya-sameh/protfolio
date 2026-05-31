@@ -1,44 +1,69 @@
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+/* ========= variables ========== */
+
+:root {
+    --bg: #0B1120;
+    --text: #faebd7;
+    --bg-card: #111827;
+    --premium-text: #D4AF37;
+    --color-bronze: #B87333;
+    --font-fancy: "Great Vibes", cursive;
+    --font-clean: "Poppins", "Inter", sans-serif;
+    --color-github: #ffffff;
+    --color-linkedin: #0077b5;
+    --color-envelope: #ea4335;
+}
+
+
 /* the universals */
+
 html {
     /* to make the scroll smooth */
     scroll-behavior: smooth;
 }
 
 body {
-    background-color: #0B1120;
+    background-color: var(--bg);
+    color: var(--text);
     padding: 0;
     margin: 0;
     display: flex;
     flex-direction: column;
+    font-family: var(--font-clean);
 }
 
 p {
-    color: #faebd7;
+    color: var(--text);
+    line-height: 1.6;
 }
 
 h2 {
-    font-family: "Great Vibes", cursive;
-    color: #D4AF37;
-    font-size: 1.6rem;
+    font-family: var(--font-fancy);
+    color: var(--premium-text);
+    font-size: 2rem;
 }
 
 h3 {
-    font-family: "Great Vibes", cursive;
-    color: #B87333;
+    font-family: var(--font-fancy);
+    color: var(--color-bronze);
+    font-size: 1.5rem;
 }
 
 strong {
-    color: #D4AF37;
+    color: var(--premium-text);
 }
 
 section {
     border: 1px solid rgba(250, 235, 215, 0.2);
     background-color: rgba(255, 255, 255, 0.02);
     border-radius: 1rem;
-    margin-bottom: 1rem;
-    padding: 1rem;
+    margin-bottom: 1.5rem;
+    padding: 1.5rem;
     transition: all 0.3s ease;
-    scroll-margin-top: 120px;
+    scroll-margin-top: 7.5rem;
 }
 
 section:hover {
@@ -46,7 +71,8 @@ section:hover {
     background-color: rgba(212, 175, 55, 0.02);
 }
 
-/* header */
+/* ========= header ========== */
+
 .header {
     /* position */
     position: sticky;
@@ -56,7 +82,9 @@ section:hover {
     background-color: rgba(17, 24, 39, 0.8);
     box-shadow: 0 20px 50px rgba(0, 0, 10, 0.4);
     backdrop-filter: blur(10px);
-    color: #faebd7;
+    /* for mac users */
+    -webkit-backdrop-filter: blur(10px);
+    color: var(--text);
     padding: 1rem;
     border-radius: 1rem;
     max-width: 1100px;
@@ -65,26 +93,27 @@ section:hover {
     
     /* to stay the first layout*/
     z-index: 10;
+    isolation: isolate;
     
     /* to make display lik a row and make the text in the center */
     text-align: center;
     display: flex;
     flex-direction: row;
-    align-items: center;
     justify-content: space-between;
 }
 
 .logo span {
-    font-family: "Great Vibes", cursive;
+    font-family: var(--font-fancy);
     font-weight: 900;
     font-size: 1.7rem;
-    background: linear-gradient(45deg,#B87333,#D4AF37);
-    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
-
+    background: linear-gradient(45deg,var(--color-bronze),var(--premium-text));
+    
     background-clip: text;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
+    filter: drop-shadow(2px 2px 3px rgba(0, 0, 0, 0.5));
     transition: transform 0.3s ease;
+    display: inline-block;
 }
 
 .logo span:hover {
@@ -95,12 +124,12 @@ section:hover {
 .hd-links {
     display: flex;
     flex-direction: row;
-    justify-content: center;
     align-items: center;
-    flex-shrink: 1;
     gap: 2.5rem;
     /* to remove list's point */
     list-style: none;
+    margin: 0;
+    padding: 0;
 }
 
 .hd-links a {
@@ -110,16 +139,16 @@ section:hover {
     font-weight: 500;
     text-decoration: none;
     position: relative;
-    color: #faebd7;
+    color: var(--text);
     transition: all 0.4s ease;
 }
 
 .hd-links a:hover {
-    color: #D4AF37;
+    color: var(--premium-text);
 }
 
 .hd-links a::after {
-    background-color: #faebd7;
+    background-color: var(--text);
     content: '';
     position: absolute;
     width: 0;
@@ -131,16 +160,18 @@ section:hover {
 
 .hd-links a:hover::after {
     width: 100%;
-    background-color: #D4AF37;
+    background-color: var(--premium-text);
 }
+
+/* ========= main ========== */
 
 .main {
     padding: 2rem;
     max-width: 1100px;
     width: 90%;
-    margin: 0 auto 0 auto;
+    margin: 0 auto;
     border-radius: 1rem;
-    background-color: #111827;
+    background-color: var(--bg-card);
     box-shadow: 0 20px 50px rgba(0, 0, 10, 0.4);
 }
 
@@ -148,35 +179,29 @@ section:hover {
 .about-group {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
     gap: 1.8rem;
 }
 
 .about-info {
-    max-width: 1000px;
-    width: 90%;
+    width: 100%;
     border: 0.5px solid rgba(250, 235, 215, 0.1);
     border-radius: 1rem;
-    padding: 1rem;
+    padding: 1.5rem;
     font-size: 1.1rem;
 }
 
 .greeting {
-    color: #B87333;
+    color: var(--color-bronze);
     font-weight: 500;
-    font-family: "Great Vibes", cursive;
-    font-size: 1.3rem;
-}
-
-.greeting strong {
-    color: #B87333;
+    font-family: var(--font-fancy);
+    font-size: 1.5rem;
 }
 
 .card-container {
     display: flex;
     flex-direction: row;
     gap: 1rem;
+    width: 100%;
 }
 
 .card-availability,
@@ -185,23 +210,26 @@ section:hover {
     flex: 1;
     border-radius: 1rem;
     border: 0.5px solid rgba(250, 235, 215, 0.1);
-    padding: 1rem;
+    padding: 1.5rem;
     transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.01);
 }
 
 .card-availability:hover,
 .card-experience:hover,
 .card-focus:hover {
-    border-color: #D4AF37;
+    border-color: var(--premium-text);
     transform: translateY(-5px);
     background-color: rgba(212, 175, 55, 0.05);
 }
+
+/* ========= footer ========== */
 
 .footer {
     padding: 3rem 2rem 1.5rem;
     margin-top: 4rem;
     border-radius: 1rem;
-    background-color: #111827;
+    background-color: var(--bg-card);
     box-shadow: 0 20px 50px rgba(0, 0, 10, 0.4);
     border-top: 1px solid rgba(212, 175, 55, 0.1);
 }
@@ -218,8 +246,8 @@ section:hover {
 
 .footer-social h3, 
 .fast-links h3 {
-    color: #D4AF37;
-    font-family: sans-serif;
+    color: var(--premium-text);
+    font-family: var(--font-clean);
     font-size: 1.2rem;
     margin-bottom: 1.2rem;
     font-weight: 600;
@@ -241,6 +269,7 @@ section:hover {
     list-style: none;
     gap: 0.8rem;
     padding: 0;
+    margin: 0;
 }
 
 .ft-links a {
@@ -251,7 +280,7 @@ section:hover {
 }
 
 .ft-links a:hover {
-    color: #D4AF37;
+    color: var(--premium-text);
     padding-left: 5px;
 }
 
@@ -262,25 +291,25 @@ section:hover {
 
 .social-links a i {
     font-size: 1.7rem;
-    color: #faebd7;
+    color: var(--text);
     transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
 }
 
 
 .social-links a:hover .fa-github {
-    color: #000;
+    color: var(--color-github);
     filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.6));
     transform: translateY(-5px);
 }
 
 .social-links a:hover .fa-linkedin {
-    color: #0077b5;
+    color: var(--color-linkedin);
     filter: drop-shadow(0 0 10px rgba(0, 119, 181, 0.6));
     transform: translateY(-5px);
 }
 
 .social-links a:hover .fa-envelope {
-    color: #ea4335;
+    color: var(--color-envelope);
     filter: drop-shadow(0 0 10px rgba(234, 67, 53, 0.6));
     transform: translateY(-5px);
 }
@@ -298,29 +327,32 @@ section:hover {
     letter-spacing: 1px;
 }
 
+/* ===== media queries */
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .header {
         flex-direction: column;
-        padding: 0.5rem;
-        gap: 0.1rem;
+        padding: 1rem 0.5rem;
+        gap: 1rem;
         top: 0.5rem;
+        width: 92%;
     }
 
     .hd-links {
-        gap: 1rem;
+        gap: 1.2rem;
         padding: 0;
         flex-wrap: wrap;
         width: 100%;
+        justify-content: center;
     }
 
     .hd-links a{
-        font-size: 0.9rem;
+        font-size: 0.95rem;
     }
 
     .main {
-        padding: 1rem;
-        width: 85%;
+        padding: 1.2rem;
+        width: 92%;
     }
 
     /* sections */
@@ -332,7 +364,7 @@ section:hover {
         flex-direction: column;
         text-align: center;
         align-items: center;
-        gap: 3rem;
+        gap: 2.5rem;
     }
     
     .ft-links {
