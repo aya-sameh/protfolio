@@ -99,6 +99,7 @@ section:hover {
     text-align: center;
     display: flex;
     flex-direction: row;
+    align-items: center;
     justify-content: space-between;
 }
 
@@ -188,6 +189,7 @@ section:hover {
     border-radius: 1rem;
     padding: 1.5rem;
     font-size: 1.1rem;
+    animation: fadeIn 1s ease forwards;
 }
 
 .greeting {
@@ -326,6 +328,32 @@ section:hover {
     opacity: 0.6;
     letter-spacing: 1px;
 }
+
+
+/* ==== animations ==== */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fade {
+    from {
+        opacity: 0;
+        transform: translateY(40px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
 
 /* ===== media queries */
 
